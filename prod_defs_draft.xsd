@@ -1,0 +1,82 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.fpml.org/FpML-5/pretrade" targetNamespace="http://www.fpml.org/FpML-5/pretrade">
+    <xsd:include schemaLocation="fpml-main-5-9.xsd" />
+
+    <xsd:complexType name="PlatformConventions">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Platform conventions can be used to specify conventions enforced by a trading platform that could be specific to the trading platform alone.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="maximumQuotePrecisionDecimal" type="xsd:int" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">Maximum precision in decimal places for providing quotes.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+            <xsd:element name="minContractClipSize" type="xsd:double" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">Minimum size of a contract, when a given contract is traded, its size must be a multiple of this value.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="TradeConventions">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Trade conventions can be used to specify street-wide conventions that are applicable when trading this product.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="quoteType" type="xsd:string">
+                <!-- this must be an enum of some sort -->
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">Name of the economic value that serves as a single quote value during negotiation and will be used to determine best bid/offer.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ProductConventions">
+        <xsd:sequence>
+            <xsd:element name="platformConventions" type="PlatformConventions" />
+            <xsd:element name="tradingConventions" type="TradeConventions" /> <!--  do we want this in the first draft? -->
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="StandardPackage">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">A standard package is a type of strategy which consists of several single instruments, also known as underlying instruments. All underlying instruments must be also specified in the product definition, so that the can be referred to by their identifier.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="productId" type="ProductId" />
+            <xsd:element name="packageType" type="xsd:string" /> <!--  enum? -->
+            <xsd:element name="underlyingId" type="ProductId" minOccurs="2" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ProductDefinition">
+        <xsd:sequence>
+            <xsd:element name="description" type="xsd:string" minOccurs="0" />
+            <xsd:element name="conventions" type="ProductConventions" minOccurs="0" />
+            <xsd:choice>
+                <xsd:element name="package" type="StandardPackage" />
+                <xsd:element ref="product" minOccurs="0" />
+            </xsd:choice>
+            <xsd:element name="additionalId" type="ProductId" minOccurs="0" maxOccurs="unbounded" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:complexType name="ProductDefinitionsHeader" >
+        <xsd:sequence>
+            <xsd:element name="platformDate" type="xsd:date" />
+        </xsd:sequence>
+    </xsd:complexType>
+    
+    <xsd:complexType name="ProductDefinitions">
+        <xsd:sequence>
+            <xsd:element name="header" type="ProductDefinitionsHeader" />
+            <xsd:element name="definition" maxOccurs="unbounded" type="ProductDefinition" />
+        </xsd:sequence>
+    </xsd:complexType>
+
+    <xsd:element name="ProductDefinitionsDocument" type="ProductDefinitions" />
+    
+</xsd:schema>

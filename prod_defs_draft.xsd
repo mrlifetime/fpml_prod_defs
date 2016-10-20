@@ -31,6 +31,11 @@
                     <xsd:documentation xml:lang="en">Name of the economic value that serves as a single quote value during negotiation and will be used to determine best bid/offer.</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
+            <xsd:element name="quoteUnit" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">Units in which quote values are measured.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
     
@@ -40,15 +45,35 @@
             <xsd:element name="tradingConventions" type="TradeConventions" /> <!--  do we want this in the first draft? -->
         </xsd:sequence>
     </xsd:complexType>
+
+    <xsd:complexType name="UnderlyingProduct">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Definition of an underlying product which is part of a package.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:sequence>
+            <xsd:element name="productId" type="ProductId" />
+            <xsd:group minOccurs="0" ref="PayerReceiver.model">
+                <xsd:annotation>
+                    <xsd:documentation xml:lang="en">The side of the package</xsd:documentation>
+                </xsd:annotation>
+            </xsd:group>
+            <xsd:element name="hedgeRiskWeight" type="xsd:double" minOccurs="0" />
+        </xsd:sequence>
+    </xsd:complexType>
     
     <xsd:complexType name="StandardPackage">
         <xsd:annotation>
             <xsd:documentation xml:lang="en">A standard package is a type of strategy which consists of several single instruments, also known as underlying instruments. All underlying instruments must be also specified in the product definition, so that the can be referred to by their identifier.</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="productId" type="ProductId" />
+            <xsd:element name="productId" type="ProductId" minOccurs="1" maxOccurs="unbounded" />
             <xsd:element name="packageType" type="xsd:string" /> <!--  enum? -->
-            <xsd:element name="underlyingId" type="ProductId" minOccurs="2" maxOccurs="unbounded" />
+            <xsd:element name="underlying" type="UnderlyingProduct" minOccurs="2" maxOccurs="unbounded" />
+            <xsd:element name="referenceUnderlying" type="ProductId">
+                <xsd:annotation>
+                    <xsd:documentation>Id of the underlying leg that is used for determining the trade side of the package. This underlying must be present inside underlying collection.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
     
@@ -60,7 +85,6 @@
                 <xsd:element name="package" type="StandardPackage" />
                 <xsd:element ref="product" minOccurs="0" />
             </xsd:choice>
-            <xsd:element name="additionalId" type="ProductId" minOccurs="0" maxOccurs="unbounded" />
         </xsd:sequence>
     </xsd:complexType>
 
@@ -74,6 +98,7 @@
         <xsd:sequence>
             <xsd:element name="header" type="ProductDefinitionsHeader" />
             <xsd:element name="definition" maxOccurs="unbounded" type="ProductDefinition" />
+            <xsd:group ref="PartiesAndAccounts.model" minOccurs="0" />
         </xsd:sequence>
     </xsd:complexType>
 

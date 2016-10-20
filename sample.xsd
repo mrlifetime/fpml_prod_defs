@@ -11,7 +11,8 @@
                 <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
             </platformConventions>
             <tradingConventions>
-                <quoteType>SpreadBps</quoteType>
+                <quoteType>Spread</quoteType>
+                <quoteUnit>BasisPoint</quoteUnit>
             </tradingConventions>
         </conventions>
         <package>
@@ -30,7 +31,8 @@
                 <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
             </platformConventions>
             <tradingConventions>
-                <quoteType>FixedRatePct</quoteType>
+                <quoteType>FixedRate</quoteType>
+                <quoteUnit>Percent</quoteUnit>
             </tradingConventions>
         </conventions>
         <swap>
@@ -156,7 +158,8 @@
                 <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
             </platformConventions>
             <tradingConventions>
-                <quoteType>FixedRatePct</quoteType>
+                <quoteType>FixedRate</quoteType>
+                <quoteUnit>Percent</quoteUnit>
             </tradingConventions>
         </conventions>
         <swap>
@@ -282,7 +285,8 @@
                 <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
             </platformConventions>
             <tradingConventions>
-                <quoteType>FixedRatePct</quoteType>
+                <quoteType>FixedRate</quoteType>
+                <quoteUnit>Percent</quoteUnit>
             </tradingConventions>
         </conventions>
         <swap>
@@ -409,10 +413,15 @@
             </platformConventions>
             <tradingConventions>
                 <quoteType>NetPresetValue</quoteType>
+                <quoteUnit>Absolute</quoteUnit>
             </tradingConventions>
         </conventions>
         <swap>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">USM30004</productId>
+            <productId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/CME">US57056CG833</productId>
+            <productId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/LCH">US57056CZJ88</productId>
+            <productId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-CUSIP-1-0/CME">57056C G83</productId>
+            <productId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-CUSIP-1-0/LCH">57056C ZJ8</productId>
             <swapStream>
                 <calculationPeriodDates id="USM30004_floatingCalcPeriodDates">
                     <effectiveDate>
@@ -549,13 +558,6 @@
                 <paymentType>Fee</paymentType>
             </additionalPayment>
         </swap>
-
-        <!-- mac swaps have different cusip/isin depending on the ccp they are going to clear at -->
-        <!-- how to specify calendars on additional payment without specifying additional payment? -->
-        <additionalId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/CME">US57056CG833</additionalId>
-        <additionalId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/LCH">US57056CZJ88</additionalId>
-        <additionalId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-CUSIP-1-0/CME">57056C G83</additionalId>
-        <additionalId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-CUSIP-1-0/LCH">57056C ZJ8</additionalId>
     </definition>
 
     <definition>
@@ -565,7 +567,8 @@
                 <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
             </platformConventions>
             <tradingConventions>
-                <quoteType>PremiumBps</quoteType>
+                <quoteType>Premium</quoteType>
+                <quoteUnit>BasisPoint</quoteUnit>
             </tradingConventions>
         </conventions>
         <swaption>
@@ -616,7 +619,8 @@
                 <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
             </platformConventions>
             <tradingConventions>
-                <quoteType>FixedRatePct</quoteType>
+                <quoteType>FixedRate</quoteType>
+                <quoteUnit>Percent</quoteUnit>
             </tradingConventions>
         </conventions>
         <swap>
@@ -734,4 +738,11 @@
             </swapStream>
         </swap>
     </definition>
+    
+    <party id="party1">
+        <partyId>MarketMaker</partyId>
+    </party>
+    <party id="party2">
+        <partyId>PriceTaker</partyId>
+    </party>
 </ProductDefinitionsDocument>

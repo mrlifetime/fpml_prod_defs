@@ -1,6 +1,37 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.fpml.org/FpML-5/pretrade" targetNamespace="http://www.fpml.org/FpML-5/pretrade">
+<xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.fpml.org/FpML-5/pretrade" targetNamespace="http://www.fpml.org/FpML-5/pretrade"
+            xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" ecore:documentRoot="FpML" ecore:nsPrefix="pre" ecore:package="org.fpml.pretrade">
+    
+    <xsd:include schemaLocation="fpml-asset-5-9.xsd" />
     <xsd:include schemaLocation="fpml-main-5-9.xsd" />
+    
+    <xsd:element name="tradeSideReference" type="Reference" abstract="true">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">An abstract element used as a place holder for the substituting trade side reference depending on product type.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    
+    <xsd:complexType name="ComponentTradeSideReference">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Reference to a component of the package that defines the package trade side.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="Reference">
+                <xsd:attribute name="href" type="xsd:IDREF" use="required" ecore:reference="ComponentProduct" />
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
+
+    <xsd:complexType name="SwapStreamSideReference">
+        <xsd:annotation>
+            <xsd:documentation xml:lang="en">Reference to a swapStream of the swap that defines the trade side.</xsd:documentation>
+        </xsd:annotation>
+        <xsd:complexContent>
+            <xsd:extension base="Reference">
+                <xsd:attribute name="href" type="xsd:IDREF" use="required" ecore:reference="SwapStream" />
+            </xsd:extension>
+        </xsd:complexContent>
+    </xsd:complexType>
 
     <xsd:complexType name="PlatformConventions">
         <xsd:annotation>
@@ -38,45 +69,42 @@
             </xsd:element>
         </xsd:sequence>
     </xsd:complexType>
-    
+
     <xsd:complexType name="ProductConventions">
         <xsd:sequence>
             <xsd:element name="platformConventions" type="PlatformConventions" />
-            <xsd:element name="tradingConventions" type="TradeConventions" /> <!--  do we want this in the first draft? -->
+            <xsd:element name="tradingConventions" type="TradeConventions" />
+            <!--  do we want this in the first draft? -->
         </xsd:sequence>
     </xsd:complexType>
 
-    <xsd:complexType name="UnderlyingProduct">
+    <xsd:complexType name="ComponentProduct">
         <xsd:annotation>
             <xsd:documentation xml:lang="en">Definition of an underlying product which is part of a package.</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
             <xsd:element name="productId" type="ProductId" />
-            <xsd:group minOccurs="0" ref="PayerReceiver.model">
-                <xsd:annotation>
-                    <xsd:documentation xml:lang="en">The side of the package</xsd:documentation>
-                </xsd:annotation>
-            </xsd:group>
+            <xsd:choice>
+                <xsd:group minOccurs="0" ref="PayerReceiver.model" />
+                <xsd:group minOccurs="0" ref="BuyerSeller.model" />
+            </xsd:choice>
             <xsd:element name="hedgeRiskWeight" type="xsd:double" minOccurs="0" />
         </xsd:sequence>
+        <xsd:attribute name="componentId" type="xsd:ID" use="required" />
     </xsd:complexType>
-    
+
     <xsd:complexType name="StandardPackage">
         <xsd:annotation>
             <xsd:documentation xml:lang="en">A standard package is a type of strategy which consists of several single instruments, also known as underlying instruments. All underlying instruments must be also specified in the product definition, so that the can be referred to by their identifier.</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
             <xsd:element name="productId" type="ProductId" minOccurs="1" maxOccurs="unbounded" />
-            <xsd:element name="packageType" type="xsd:string" /> <!--  enum? -->
-            <xsd:element name="underlying" type="UnderlyingProduct" minOccurs="2" maxOccurs="unbounded" />
-            <xsd:element name="referenceUnderlying" type="ProductId">
-                <xsd:annotation>
-                    <xsd:documentation>Id of the underlying leg that is used for determining the trade side of the package. This underlying must be present inside underlying collection.</xsd:documentation>
-                </xsd:annotation>
-            </xsd:element>
+            <xsd:element name="packageName" type="xsd:string" /> 
+            <xsd:element name="hedgeType" type="xsd:string" />
+            <xsd:element name="component" type="ComponentProduct" minOccurs="2" maxOccurs="unbounded" />
         </xsd:sequence>
     </xsd:complexType>
-    
+
     <xsd:complexType name="ProductDefinition">
         <xsd:sequence>
             <xsd:element name="description" type="xsd:string" minOccurs="0" />
@@ -85,15 +113,19 @@
                 <xsd:element name="package" type="StandardPackage" />
                 <xsd:element ref="product" minOccurs="0" />
             </xsd:choice>
+            <xsd:element ref="tradeSideReference" minOccurs="0" />
         </xsd:sequence>
     </xsd:complexType>
+
+    <xsd:element name="tradeSideRelativeToComponent"  type="ComponentTradeSideReference" substitutionGroup="tradeSideReference" />
+    <xsd:element name="tradeSideRelativeToSwapStream" type="SwapStreamSideReference"    substitutionGroup="tradeSideReference" />
 
     <xsd:complexType name="ProductDefinitionsHeader" >
         <xsd:sequence>
             <xsd:element name="platformDate" type="xsd:date" />
         </xsd:sequence>
     </xsd:complexType>
-    
+
     <xsd:complexType name="ProductDefinitions">
         <xsd:sequence>
             <xsd:element name="header" type="ProductDefinitionsHeader" />
@@ -103,5 +135,5 @@
     </xsd:complexType>
 
     <xsd:element name="ProductDefinitionsDocument" type="ProductDefinitions" />
-    
+
 </xsd:schema>

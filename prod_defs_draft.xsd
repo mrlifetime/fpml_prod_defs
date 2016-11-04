@@ -1,9 +1,15 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ Copyright 2016 Bloomberg LP. All rights reserved.
+ FpML Public License Version 2.0
+ http://www.fpml.org/the_standard/fpml-public-license/
+-->
+
 <xsd:schema elementFormDefault="qualified" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://www.fpml.org/FpML-5/pretrade" targetNamespace="http://www.fpml.org/FpML-5/pretrade"
             xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" ecore:documentRoot="FpML" ecore:nsPrefix="pre" ecore:package="org.fpml.pretrade">
     
-    <xsd:include schemaLocation="fpml-asset-5-9.xsd" />
-    <xsd:include schemaLocation="fpml-main-5-9.xsd" />
+    <xsd:include schemaLocation="pretrade59/fpml-main-5-9.xsd" />
     
     <xsd:element name="tradeSideReference" type="Reference" abstract="true">
         <xsd:annotation>

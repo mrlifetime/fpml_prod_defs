@@ -1,4 +1,11 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
+
+<!-- 
+ Copyright 2016 Bloomberg LP. All rights reserved.
+ FpML Public License Version 2.0
+ http://www.fpml.org/the_standard/fpml-public-license/
+-->
+
 <ProductDefinitionsDocument xmlns="http://www.fpml.org/FpML-5/pretrade">
     <header>
         <platformDate>2016-10-12</platformDate>
@@ -20,25 +27,25 @@
             <packageName>Butterfly</packageName>
             <hedgeType>DeltaNeutral</hedgeType>
             <component componentId="EU020305_EUSA2">
+                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA2</productId>
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
-                <id productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA2</id>
                 <hedgeRiskWeight>0.5</hedgeRiskWeight>
             </component>
             <component componentId="EU020305_EUSA3">
+                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA3</productId>
                 <payerPartyReference href="party2" />
                 <receiverPartyReference href="party1" />
-                <id productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA3</id>
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
             <component componentId="EU020305_EUSA5">
+                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA5</productId>
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
-                <id productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA5</id>
                 <hedgeRiskWeight>0.5</hedgeRiskWeight>
             </component>
         </package>
-        <tradeSideRelativeToComponent id="EU020305_EUSA5" />
+        <tradeSideRelativeToComponent href="EU020305_EUSA5" />
     </definition>
 
     <definition>
@@ -57,19 +64,19 @@
             <packageName>SwapVsBond</packageName>
             <hedgeType>DeltaNeutral</hedgeType>
             <component componentId="USSP5_USSWAP5">
+                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">USSWAP5</productId>
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
-                <id productIdScheme="http://www.bloomberg.com/ticker-scheme">USSWAP5</id>
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
             <component componentId="USSP5_BOND">
+                <productId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/">US912828T677</productId> <!-- not in the document? -->
                 <buyerPartyReference href="party2" />
                 <sellerPartyReference href="party1" />
-                <id productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/">US912828T677</id> <!-- not in the document? -->
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
         </package>
-        <tradeSideRelativeToComponent id="USSP5_USSWAP5" />
+        <tradeSideRelativeToComponent href="USSP5_USSWAP5" />
     </definition>
 
     <definition>
@@ -88,19 +95,19 @@
             <packageName>SwapVsFuture</packageName>
             <hedgeType>DeltaNeutral</hedgeType>
             <component componentId="ASWABUND_EUSA5">
+                <productId productIdScheme="http://www.bloomberg.com/custom-swap-id">ASWABUND_20161012_SwapLeg</productId>
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
-                <id productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA5</id>
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
             <component componentId="ASWABUND_FUTURE">
+                <productId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/">DE0009652644</productId> <!-- not in the document? -->
                 <buyerPartyReference href="party2" />
                 <sellerPartyReference href="party1" />
-                <id productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/">DE0009652644</id> <!-- not in the document? -->
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
         </package>
-        <tradeSideRelativeToComponent id="ASWABUND_EUSA5" />
+        <tradeSideRelativeToComponent href="ASWABUND_EUSA5" />
     </definition>
 
     <definition>
@@ -119,17 +126,151 @@
             <packageName>Basis2x</packageName>
             <hedgeType>Par</hedgeType>
             <component componentId="EUBSV2_EUSW2V3">
+                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSW2V3</productId>
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
-                <id productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSW2V3</id>
             </component>
             <component componentId="EUBSV2_EUSA2">
+                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA2</productId>
                 <payerPartyReference href="party2" />
                 <receiverPartyReference href="party1" />
-                <id productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA2</id>
             </component>
         </package>
-        <tradeSideRelativeToComponent id="EUBSV2_EUSA2" />
+        <tradeSideRelativeToComponent href="EUBSV2_EUSA2" />
+    </definition>
+
+    <definition>
+        <description>USD Semi vs 3M 5yr</description>
+        <conventions>
+            <platformConventions>
+                <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
+            </platformConventions>
+            <tradingConventions>
+                <quoteType>FixedRate</quoteType>
+                <quoteUnit>Percent</quoteUnit>
+            </tradingConventions>
+        </conventions>
+        <swap>
+            <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">USSWAP5</productId>
+            <swapStream id="USSWAP5_floatingLeg">
+                <calculationPeriodDates id="USSWAP5_floatingCalcPeriodDates">
+                    <effectiveDate>
+                        <unadjustedDate>2016-10-17</unadjustedDate>
+                        <dateAdjustments>
+                            <businessDayConvention>NONE</businessDayConvention>
+                        </dateAdjustments>
+                    </effectiveDate>
+                    <terminationDate>
+                        <unadjustedDate>2021-10-17</unadjustedDate>
+                        <dateAdjustments>
+                            <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                            <businessCenters>
+                                <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">GBLO</businessCenter>
+                                <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">USNY</businessCenter>
+                            </businessCenters>
+                        </dateAdjustments>
+                    </terminationDate>
+                    <calculationPeriodDatesAdjustments>
+                        <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                        <businessCenters>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">GBLO</businessCenter>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">USNY</businessCenter>
+                        </businessCenters>
+                    </calculationPeriodDatesAdjustments>
+                    <calculationPeriodFrequency>
+                        <periodMultiplier>3</periodMultiplier>
+                        <period>M</period>
+                        <rollConvention>17</rollConvention>
+                    </calculationPeriodFrequency>
+                </calculationPeriodDates>
+                <paymentDates>
+                    <paymentFrequency>
+                        <periodMultiplier>3</periodMultiplier>
+                        <period>M</period>
+                    </paymentFrequency>
+                    <paymentDatesAdjustments>
+                        <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                        <businessCenters>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">GBLO</businessCenter>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">USNY</businessCenter>
+                        </businessCenters>
+                    </paymentDatesAdjustments>
+                </paymentDates>
+                <calculationPeriodAmount>
+                    <calculation>
+                        <notionalSchedule>
+                            <notionalStepSchedule>
+                                <currency>USD</currency>
+                            </notionalStepSchedule>
+                        </notionalSchedule>
+                        <floatingRateCalculation>
+                            <floatingRateIndex>USD-LIBOR-BBA</floatingRateIndex>
+                            <indexTenor>
+                                <periodMultiplier>3</periodMultiplier>
+                                <period>M</period>
+                            </indexTenor>
+                        </floatingRateCalculation>
+                        <dayCountFraction>ACT/360</dayCountFraction>
+                    </calculation>
+                </calculationPeriodAmount>
+            </swapStream>
+            <swapStream id="USSWAP5_fixedLeg">
+                <calculationPeriodDates id="USSWAP5_fixedCalcPeriodDates">
+                    <effectiveDate>
+                        <unadjustedDate>2016-10-17</unadjustedDate>
+                        <dateAdjustments>
+                            <businessDayConvention>NONE</businessDayConvention>
+                        </dateAdjustments>
+                    </effectiveDate>
+                    <terminationDate>
+                        <unadjustedDate>2021-10-17</unadjustedDate>
+                        <dateAdjustments>
+                            <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                            <businessCenters>
+                                <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">GBLO</businessCenter>
+                                <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">USNY</businessCenter>
+                            </businessCenters>
+                        </dateAdjustments>
+                    </terminationDate>
+                    <calculationPeriodDatesAdjustments>
+                        <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                        <businessCenters>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">GBLO</businessCenter>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">USNY</businessCenter>
+                        </businessCenters>
+                    </calculationPeriodDatesAdjustments>
+                    <calculationPeriodFrequency>
+                        <periodMultiplier>6</periodMultiplier>
+                        <period>M</period>
+                        <rollConvention>17</rollConvention>
+                    </calculationPeriodFrequency>
+                </calculationPeriodDates>
+                <paymentDates>
+                    <paymentFrequency>
+                        <periodMultiplier>6</periodMultiplier>
+                        <period>M</period>
+                    </paymentFrequency>
+                    <paymentDatesAdjustments>
+                        <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                        <businessCenters>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">GBLO</businessCenter>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">USNY</businessCenter>
+                        </businessCenters>
+                    </paymentDatesAdjustments>
+                </paymentDates>
+                <calculationPeriodAmount>
+                    <calculation>
+                        <notionalSchedule>
+                            <notionalStepSchedule>
+                                <currency>USD</currency>
+                            </notionalStepSchedule>
+                        </notionalSchedule>
+                        <dayCountFraction>30/360</dayCountFraction>
+                    </calculation>
+                </calculationPeriodAmount>
+            </swapStream>
+        </swap>
+        <tradeSideRelativeToSwapStream href="USSWAP5_fixedLeg" />
     </definition>
 
     <definition>
@@ -271,7 +412,7 @@
                 </calculationPeriodAmount>
             </swapStream>
         </swap>
-        <tradeSideRelativeToSwapStream id="USBA2_floatingCalcPeriodDates1" />
+        <tradeSideRelativeToSwapStream href="USBA2_floatingCalcPeriodDates1" />
     </definition>
     
     <definition>
@@ -399,7 +540,7 @@
                 </calculationPeriodAmount>
             </swapStream>
         </swap>
-        <tradeSideRelativeToSwapStream id="EUSA2_fixedLeg" />
+        <tradeSideRelativeToSwapStream href="EUSA2_fixedLeg" />
     </definition>
 
     <definition>
@@ -527,7 +668,7 @@
                 </calculationPeriodAmount>
             </swapStream>
         </swap>
-        <tradeSideRelativeToSwapStream id="EUSW2V3_fixedLeg" />
+        <tradeSideRelativeToSwapStream href="EUSW2V3_fixedLeg" />
     </definition>
     
     <definition>
@@ -655,7 +796,7 @@
                 </calculationPeriodAmount>
             </swapStream>
         </swap>
-        <tradeSideRelativeToSwapStream id="EUSA3_fixedLeg" />
+        <tradeSideRelativeToSwapStream href="EUSA3_fixedLeg" />
     </definition>
     
     <definition>
@@ -783,7 +924,157 @@
                 </calculationPeriodAmount>
             </swapStream>
         </swap>
-        <tradeSideRelativeToSwapStream id="EUSA5_fixedLeg" />
+        <tradeSideRelativeToSwapStream href="EUSA5_fixedLeg" />
+    </definition>
+    
+    <definition>
+        <description>EUR 6M EURIBOR 10Y hedged vs BUND</description>
+        <conventions>
+            <platformConventions>
+                <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
+            </platformConventions>
+            <tradingConventions>
+                <quoteType>FixedRate</quoteType>
+                <quoteUnit>Percent</quoteUnit>
+            </tradingConventions>
+        </conventions>
+        <swap>
+            <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">ASWABUND_20161012_SwapLeg</productId>
+            <swapStream id="ASWABUND_20161012_SwapLeg_floatingLeg">
+                <calculationPeriodDates id="ASWABUND_20161012_SwapLeg_floatingCalcPeriodDates">
+                    <effectiveDate>
+                        <unadjustedDate>2016-12-12</unadjustedDate>
+                        <dateAdjustments>
+                            <businessDayConvention>NONE</businessDayConvention>
+                        </dateAdjustments>
+                    </effectiveDate>
+                    <terminationDate>
+                        <unadjustedDate>2025-08-15</unadjustedDate>
+                        <dateAdjustments>
+                            <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                            <businessCenters>
+                                <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">EUTA</businessCenter>
+                            </businessCenters>
+                        </dateAdjustments>
+                    </terminationDate>
+                    <calculationPeriodDatesAdjustments>
+                        <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                        <businessCenters>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">EUTA</businessCenter>
+                        </businessCenters>
+                    </calculationPeriodDatesAdjustments>
+                    <firstRegularPeriodStartDate>2017-02-15</firstRegularPeriodStartDate>
+                    <stubPeriodType>ShortInitial</stubPeriodType>
+                    <calculationPeriodFrequency>
+                        <periodMultiplier>6</periodMultiplier>
+                        <period>M</period>
+                        <rollConvention>15</rollConvention>
+                    </calculationPeriodFrequency>
+                </calculationPeriodDates>
+                <paymentDates>
+                    <paymentFrequency>
+                        <periodMultiplier>6</periodMultiplier>
+                        <period>M</period>
+                    </paymentFrequency>
+                    <paymentDatesAdjustments>
+                        <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                        <businessCenters>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">EUTA</businessCenter>
+                        </businessCenters>
+                    </paymentDatesAdjustments>
+                </paymentDates>
+                <calculationPeriodAmount>
+                    <calculation>
+                        <notionalSchedule>
+                            <notionalStepSchedule>
+                                <currency>EUR</currency>
+                            </notionalStepSchedule>
+                        </notionalSchedule>
+                        <floatingRateCalculation>
+                            <floatingRateIndex>EUR-EURIBOR-Reuters</floatingRateIndex>
+                            <indexTenor>
+                                <periodMultiplier>6</periodMultiplier>
+                                <period>M</period>
+                            </indexTenor>
+                        </floatingRateCalculation>
+                        <dayCountFraction>ACT/360</dayCountFraction>
+                    </calculation>
+                </calculationPeriodAmount>
+                <stubCalculationPeriodAmount>
+                    <initialStub>
+                        <floatingRate>
+                            <floatingRateIndex>EUR-EURIBOR-Reuters</floatingRateIndex>
+                            <indexTenor>
+                                <periodMultiplier>2</periodMultiplier>
+                                <period>M</period>
+                            </indexTenor>
+                        </floatingRate>
+                        <floatingRate>
+                            <floatingRateIndex>EUR-EURIBOR-Reuters</floatingRateIndex>
+                            <indexTenor>
+                                <periodMultiplier>3</periodMultiplier>
+                                <period>M</period>
+                            </indexTenor>
+                        </floatingRate>
+                    </initialStub>
+                </stubCalculationPeriodAmount>
+            </swapStream>
+            <swapStream id="ASWABUND_20161012_SwapLeg_fixedLeg">
+                <calculationPeriodDates id="ASWABUND_20161012_SwapLeg_fixedCalcPeriodDates">
+                    <effectiveDate>
+                        <unadjustedDate>2016-12-12</unadjustedDate>
+                        <dateAdjustments>
+                            <businessDayConvention>NONE</businessDayConvention>
+                        </dateAdjustments>
+                    </effectiveDate>
+                    <terminationDate>
+                        <unadjustedDate>2025-08-15</unadjustedDate>
+                        <dateAdjustments>
+                            <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                            <businessCenters>
+                                <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">EUTA</businessCenter>
+                            </businessCenters>
+                        </dateAdjustments>
+                    </terminationDate>
+                    <calculationPeriodDatesAdjustments>
+                        <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                        <businessCenters>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">EUTA</businessCenter>
+                        </businessCenters>
+                    </calculationPeriodDatesAdjustments>
+                    <firstRegularPeriodStartDate>2017-08-15</firstRegularPeriodStartDate>
+                    <stubPeriodType>ShortInitial</stubPeriodType>
+                    <calculationPeriodFrequency>
+                        <periodMultiplier>1</periodMultiplier>
+                        <period>Y</period>
+                        <rollConvention>15</rollConvention>
+                    </calculationPeriodFrequency>
+                </calculationPeriodDates>
+                <paymentDates>
+                    <paymentFrequency>
+                        <periodMultiplier>1</periodMultiplier>
+                        <period>Y</period>
+                    </paymentFrequency>
+                    <paymentDatesAdjustments>
+                        <businessDayConvention>MODFOLLOWING</businessDayConvention>
+                        <businessCenters>
+                            <businessCenter businessCenterScheme="http://www.fpml.org/coding-scheme/business-center">EUTA</businessCenter>
+                        </businessCenters>
+                    </paymentDatesAdjustments>
+                </paymentDates>
+                <calculationPeriodAmount>
+                    <calculation>
+                        <notionalSchedule>
+                            <notionalStepSchedule>
+                                <currency>EUR</currency>
+                            </notionalStepSchedule>
+                        </notionalSchedule>
+                        <dayCountFraction>30/360</dayCountFraction>
+                    </calculation>
+                </calculationPeriodAmount>
+            </swapStream>
+        </swap>
+        <tradeSideRelativeToSwapStream href="ASWABUND_20161012_SwapLeg_fixedLeg" />
     </definition>
     
     <definition>
@@ -939,7 +1230,7 @@
                 <paymentType>Fee</paymentType>
             </additionalPayment>
         </swap>
-        <tradeSideRelativeToSwapStream id="USM30004_fixedLeg" />
+        <tradeSideRelativeToSwapStream href="USM30004_fixedLeg" />
     </definition>
 
     <definition>
@@ -1048,7 +1339,7 @@
                     </calculationPeriodAmount>
                 </swapStream>
                 <swapStream id="BPPE15_BPSW5_fixedLeg">
-                    <calculationPeriodDates id="BPSW5_fixedCalcPeriodDates">
+                    <calculationPeriodDates id="BPPE15_BPSW5_fixedCalcPeriodDates">
                         <effectiveDate>
                             <unadjustedDate>2017-10-13</unadjustedDate>
                             <dateAdjustments>
@@ -1228,7 +1519,7 @@
                 </calculationPeriodAmount>
             </swapStream>
         </swap>
-        <tradeSideRelativeToSwapStream id="BPSW5_fixedLeg" />
+        <tradeSideRelativeToSwapStream href="BPSW5_fixedLeg" />
     </definition>
     
     <party id="party1">

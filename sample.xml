@@ -27,21 +27,18 @@
             <packageName>Butterfly</packageName>
             <hedgeType>DeltaNeutral</hedgeType>
             <component componentId="EU020305_EUSA2">
-                <isDefinedInDocument>true</isDefinedInDocument>
                 <productDefinitionReference href="EUSA2" />
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
                 <hedgeRiskWeight>0.5</hedgeRiskWeight>
             </component>
             <component componentId="EU020305_EUSA3">
-                <isDefinedInDocument>true</isDefinedInDocument>
                 <productDefinitionReference href="EUSA3" />
                 <payerPartyReference href="party2" />
                 <receiverPartyReference href="party1" />
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
             <component componentId="EU020305_EUSA5">
-                <isDefinedInDocument>true</isDefinedInDocument>
                 <productDefinitionReference href="EUSA5" />
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
@@ -67,14 +64,12 @@
             <packageName>SwapVsBond</packageName>
             <hedgeType>DeltaNeutral</hedgeType>
             <component componentId="USSP5_USSWAP5">
-                <isDefinedInDocument>true</isDefinedInDocument>
                 <productDefinitionReference href="USSWAP5" />
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
             <component componentId="USSP5_BOND">
-                <isDefinedInDocument>false</isDefinedInDocument>
                 <productId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/">US912828T677</productId> <!-- not in the document? -->
                 <buyerPartyReference href="party2" />
                 <sellerPartyReference href="party1" />
@@ -100,14 +95,12 @@
             <packageName>SwapVsFuture</packageName>
             <hedgeType>DeltaNeutral</hedgeType>
             <component componentId="ASWABUND_EUSA5">
-                <isDefinedInDocument>true</isDefinedInDocument>
                 <productDefinitionReference href="ASWABUND_20161012_SwapLeg" />
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
             <component componentId="ASWABUND_FUTURE">
-                <isDefinedInDocument>false</isDefinedInDocument>
                 <productId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/">DE0009652644</productId> <!-- not in the document? -->
                 <buyerPartyReference href="party2" />
                 <sellerPartyReference href="party1" />
@@ -133,13 +126,11 @@
             <packageName>Basis2x</packageName>
             <hedgeType>Par</hedgeType>
             <component componentId="EUBSV2_EUSW2V3">
-                <isDefinedInDocument>true</isDefinedInDocument>
                 <productDefinitionReference href="EUSW2V3" />
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
             </component>
             <component componentId="EUBSV2_EUSA2">
-                <isDefinedInDocument>true</isDefinedInDocument>
                 <productDefinitionReference href="EUSA2" />
                 <payerPartyReference href="party2" />
                 <receiverPartyReference href="party1" />

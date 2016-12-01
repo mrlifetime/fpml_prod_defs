@@ -123,7 +123,7 @@
             <xsd:element name="packageName" type="xsd:string" />
             <xsd:element name="hedgeType" type="xsd:string">
                 <xsd:annotation>
-                    <xsd:documentation>Hedged type how quantities on each component product are calculated.</xsd:documentation>
+                    <xsd:documentation>Hedged type defines how quantities on each component product are calculated. If hedge type is DeltaNeutral, component products must have HedgeRiskWeights defined.</xsd:documentation>
                 </xsd:annotation>
             </xsd:element>
             <xsd:element name="component" type="ComponentProduct" minOccurs="2" maxOccurs="unbounded" />

@@ -97,10 +97,19 @@
                 <xsd:element name="productDefinitionReference" type="ProductReference" />
             </xsd:choice>
             <xsd:choice>
+                <xsd:annotation>
+                    <xsd:documentation>For cross-asset packages it may be necessary to use either PayerReceiver.model or BuyerSeller.model whichever is logically applicable to the component product.
+                    For example, a bond will require BuyerSeller.model but a swap will require PayerReceiver.model.</xsd:documentation>
+                </xsd:annotation>
                 <xsd:group minOccurs="0" ref="PayerReceiver.model" />
                 <xsd:group minOccurs="0" ref="BuyerSeller.model" />
             </xsd:choice>
-            <xsd:element name="hedgeRiskWeight" type="xsd:double" minOccurs="0" />
+            <xsd:element name="hedgeRiskWeight" type="xsd:double" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>Risk weight is applicable to packages with RiskNeutral hedge type.
+                        For example, a risk weight of 1.0 on each leg would means that the quantities are calculated such that the risk of both legs is equal.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:sequence>
         <xsd:attribute name="componentId" type="xsd:ID" use="required" />
     </xsd:complexType>
@@ -111,27 +120,56 @@
         </xsd:annotation>
         <xsd:sequence>
             <xsd:element name="productId" type="ProductId" minOccurs="1" maxOccurs="unbounded" />
-            <xsd:element name="packageName" type="xsd:string" /> 
-            <xsd:element name="hedgeType" type="xsd:string" />
+            <xsd:element name="packageName" type="xsd:string" />
+            <xsd:element name="hedgeType" type="xsd:string">
+                <xsd:annotation>
+                    <xsd:documentation>Hedged type how quantities on each component product are calculated.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="component" type="ComponentProduct" minOccurs="2" maxOccurs="unbounded" />
         </xsd:sequence>
     </xsd:complexType>
 
     <xsd:complexType name="ProductDefinition">
         <xsd:sequence>
-            <xsd:element name="description" type="xsd:string" minOccurs="0" />
+            <xsd:element name="description" type="xsd:string" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>Optional "user-friendly" name for the product used for annotation purposes</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
             <xsd:element name="conventions" type="ProductConventions" minOccurs="0" />
             <xsd:choice>
-                <xsd:element name="package" type="StandardPackage" />
-                <xsd:element ref="product" minOccurs="0" />
+                <xsd:element name="package" type="StandardPackage">
+                    <xsd:annotation>
+                        <xsd:documentation>Definition of a standard package that consists out of several products</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
+                <xsd:element ref="product" minOccurs="0">
+                    <xsd:annotation>
+                        <xsd:documentation>FpML product definition</xsd:documentation>
+                    </xsd:annotation>
+                </xsd:element>
             </xsd:choice>
-            <xsd:element ref="tradeSideReference" minOccurs="0" />
+            <xsd:element ref="tradeSideReference" minOccurs="0">
+                <xsd:annotation>
+                    <xsd:documentation>If this definition is for a single product, tradeSideReference can be of type tradeSideRelativeToSwapStream and refer to the swapStream id that determines the trade side.
+                    If this definition is for a standard package, tradeSideReference can be of type tradeSideRelativeToComponent which refers to the component product that determines the trade side.</xsd:documentation>
+                </xsd:annotation>
+            </xsd:element>
         </xsd:sequence>
         <xsd:attribute name="id" type="xsd:ID" />
     </xsd:complexType>
 
-    <xsd:element name="tradeSideRelativeToComponent"  type="ComponentTradeSideReference" substitutionGroup="tradeSideReference" />
-    <xsd:element name="tradeSideRelativeToSwapStream" type="SwapStreamSideReference"    substitutionGroup="tradeSideReference" />
+    <xsd:element name="tradeSideRelativeToComponent"  type="ComponentTradeSideReference" substitutionGroup="tradeSideReference">
+        <xsd:annotation>
+            <xsd:documentation>Refer to the component product defined within standard package definition where this field is defined.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
+    <xsd:element name="tradeSideRelativeToSwapStream" type="SwapStreamSideReference"    substitutionGroup="tradeSideReference">
+        <xsd:annotation>
+            <xsd:documentation>Refer to the swap stream defined within the product definition where this field is defined.</xsd:documentation>
+        </xsd:annotation>
+    </xsd:element>
 
     <xsd:complexType name="ProductDefinitionsHeader" >
         <xsd:sequence>

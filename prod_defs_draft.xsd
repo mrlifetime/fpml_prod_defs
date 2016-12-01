@@ -86,10 +86,17 @@
 
     <xsd:complexType name="ComponentProduct">
         <xsd:annotation>
-            <xsd:documentation xml:lang="en">Definition of an underlying product which is part of a package.</xsd:documentation>
+            <xsd:documentation xml:lang="en">Definition of an underlying product which is part of a package.
+                A full product definition of the component may be provided elsewhere within the document.
+                In this case isDefinedInDocument element should be set to true and ProductReference should be given.
+                In the case when the component is not defined within the product definitions document, isDefinedInDocument element should be set to false and product id should be provided.</xsd:documentation>
         </xsd:annotation>
         <xsd:sequence>
-            <xsd:element name="productId" type="ProductId" />
+            <xsd:element name="isDefinedInDocument" type="xsd:boolean" />
+            <xsd:choice>
+                <xsd:element name="productId" type="ProductId" />
+                <xsd:element name="productDefinitionReference" type="ProductReference" />
+            </xsd:choice>
             <xsd:choice>
                 <xsd:group minOccurs="0" ref="PayerReceiver.model" />
                 <xsd:group minOccurs="0" ref="BuyerSeller.model" />
@@ -121,6 +128,7 @@
             </xsd:choice>
             <xsd:element ref="tradeSideReference" minOccurs="0" />
         </xsd:sequence>
+        <xsd:attribute name="id" type="xsd:ID" />
     </xsd:complexType>
 
     <xsd:element name="tradeSideRelativeToComponent"  type="ComponentTradeSideReference" substitutionGroup="tradeSideReference" />

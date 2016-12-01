@@ -11,7 +11,7 @@
         <platformDate>2016-10-12</platformDate>
     </header>
     
-    <definition>
+    <definition id="EU020305">
         <description>EUR Butterfly 2Y 3Y 5Y</description>
         <conventions>
             <platformConventions>
@@ -27,19 +27,22 @@
             <packageName>Butterfly</packageName>
             <hedgeType>DeltaNeutral</hedgeType>
             <component componentId="EU020305_EUSA2">
-                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA2</productId>
+                <isDefinedInDocument>true</isDefinedInDocument>
+                <productDefinitionReference href="EUSA2" />
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
                 <hedgeRiskWeight>0.5</hedgeRiskWeight>
             </component>
             <component componentId="EU020305_EUSA3">
-                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA3</productId>
+                <isDefinedInDocument>true</isDefinedInDocument>
+                <productDefinitionReference href="EUSA3" />
                 <payerPartyReference href="party2" />
                 <receiverPartyReference href="party1" />
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
             <component componentId="EU020305_EUSA5">
-                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA5</productId>
+                <isDefinedInDocument>true</isDefinedInDocument>
+                <productDefinitionReference href="EUSA5" />
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
                 <hedgeRiskWeight>0.5</hedgeRiskWeight>
@@ -48,7 +51,7 @@
         <tradeSideRelativeToComponent href="EU020305_EUSA5" />
     </definition>
 
-    <definition>
+    <definition id="USSP5">
         <description>USD 5Y US TREASURY SPREAD</description>
         <conventions>
             <platformConventions>
@@ -64,12 +67,14 @@
             <packageName>SwapVsBond</packageName>
             <hedgeType>DeltaNeutral</hedgeType>
             <component componentId="USSP5_USSWAP5">
-                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">USSWAP5</productId>
+                <isDefinedInDocument>true</isDefinedInDocument>
+                <productDefinitionReference href="USSWAP5" />
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
             <component componentId="USSP5_BOND">
+                <isDefinedInDocument>false</isDefinedInDocument>
                 <productId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/">US912828T677</productId> <!-- not in the document? -->
                 <buyerPartyReference href="party2" />
                 <sellerPartyReference href="party1" />
@@ -79,7 +84,7 @@
         <tradeSideRelativeToComponent href="USSP5_USSWAP5" />
     </definition>
 
-    <definition>
+    <definition id="ASWABUND">
         <description>EUR 6M VS BUND FUTURE</description>
         <conventions>
             <platformConventions>
@@ -95,12 +100,14 @@
             <packageName>SwapVsFuture</packageName>
             <hedgeType>DeltaNeutral</hedgeType>
             <component componentId="ASWABUND_EUSA5">
-                <productId productIdScheme="http://www.bloomberg.com/custom-swap-id">ASWABUND_20161012_SwapLeg</productId>
+                <isDefinedInDocument>true</isDefinedInDocument>
+                <productDefinitionReference href="ASWABUND_20161012_SwapLeg" />
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
                 <hedgeRiskWeight>1.0</hedgeRiskWeight>
             </component>
             <component componentId="ASWABUND_FUTURE">
+                <isDefinedInDocument>false</isDefinedInDocument>
                 <productId productIdScheme="http://www.fpml.org/spec/2002/instrument-id-ISIN-1-0/">DE0009652644</productId> <!-- not in the document? -->
                 <buyerPartyReference href="party2" />
                 <sellerPartyReference href="party1" />
@@ -110,7 +117,7 @@
         <tradeSideRelativeToComponent href="ASWABUND_EUSA5" />
     </definition>
 
-    <definition>
+    <definition id="EUBSV2">
         <description>EUR Basis2x 3M v 6M 2Y</description>
         <conventions>
             <platformConventions>
@@ -126,12 +133,14 @@
             <packageName>Basis2x</packageName>
             <hedgeType>Par</hedgeType>
             <component componentId="EUBSV2_EUSW2V3">
-                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSW2V3</productId>
+                <isDefinedInDocument>true</isDefinedInDocument>
+                <productDefinitionReference href="EUSW2V3" />
                 <payerPartyReference href="party1" />
                 <receiverPartyReference href="party2" />
             </component>
             <component componentId="EUBSV2_EUSA2">
-                <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA2</productId>
+                <isDefinedInDocument>true</isDefinedInDocument>
+                <productDefinitionReference href="EUSA2" />
                 <payerPartyReference href="party2" />
                 <receiverPartyReference href="party1" />
             </component>
@@ -139,7 +148,7 @@
         <tradeSideRelativeToComponent href="EUBSV2_EUSA2" />
     </definition>
 
-    <definition>
+    <definition id="USSWAP5">
         <description>USD Semi vs 3M 5yr</description>
         <conventions>
             <platformConventions>
@@ -273,7 +282,7 @@
         <tradeSideRelativeToSwapStream href="USSWAP5_fixedLeg" />
     </definition>
 
-    <definition>
+    <definition id="USBA2">
         <description>USD Basis 1M v 3M 2Y</description>
         <conventions>
             <platformConventions>
@@ -415,7 +424,7 @@
         <tradeSideRelativeToSwapStream href="USBA2_floatingCalcPeriodDates1" />
     </definition>
     
-    <definition>
+    <definition id="EUSA2">
         <description>EUR 6M EURIBOR 2Y</description>
         <conventions>
             <platformConventions>
@@ -543,7 +552,7 @@
         <tradeSideRelativeToSwapStream href="EUSA2_fixedLeg" />
     </definition>
 
-    <definition>
+    <definition id="EUSW2V3">
         <description>EUR 3M EURIBOR 2Y</description>
         <conventions>
             <platformConventions>
@@ -671,7 +680,7 @@
         <tradeSideRelativeToSwapStream href="EUSW2V3_fixedLeg" />
     </definition>
     
-    <definition>
+    <definition id="EUSA3">
         <description>EUR 6M EURIBOR 3Y</description>
         <conventions>
             <platformConventions>
@@ -799,7 +808,7 @@
         <tradeSideRelativeToSwapStream href="EUSA3_fixedLeg" />
     </definition>
     
-    <definition>
+    <definition id="EUSA5">
         <description>EUR 6M EURIBOR 5Y</description>
         <conventions>
             <platformConventions>
@@ -927,7 +936,7 @@
         <tradeSideRelativeToSwapStream href="EUSA5_fixedLeg" />
     </definition>
     
-    <definition>
+    <definition id="ASWABUND_20161012_SwapLeg">
         <description>EUR 6M EURIBOR 10Y hedged vs BUND</description>
         <conventions>
             <platformConventions>
@@ -939,7 +948,6 @@
             </tradingConventions>
         </conventions>
         <swap>
-            <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">ASWABUND_20161012_SwapLeg</productId>
             <swapStream id="ASWABUND_20161012_SwapLeg_floatingLeg">
                 <calculationPeriodDates id="ASWABUND_20161012_SwapLeg_floatingCalcPeriodDates">
                     <effectiveDate>
@@ -1077,7 +1085,7 @@
         <tradeSideRelativeToSwapStream href="ASWABUND_20161012_SwapLeg_fixedLeg" />
     </definition>
     
-    <definition>
+    <definition id="USM30004">
         <description>USD MAC SWAP Dec16 Dec17 1%</description>
         <conventions>
             <platformConventions>
@@ -1233,7 +1241,7 @@
         <tradeSideRelativeToSwapStream href="USM30004_fixedLeg" />
     </definition>
 
-    <definition>
+    <definition id="BPPE15">
         <description>GBP Fwd Premium Swaption Straddle 1Y5Y</description>
         <conventions>
             <platformConventions>
@@ -1394,7 +1402,7 @@
         </swaption>
     </definition>
 
-    <definition>
+    <definition id="BPSW5">
         <description>GBP SWAP VS 6M 5YR</description>
         <conventions>
             <platformConventions>

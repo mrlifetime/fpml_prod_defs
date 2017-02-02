@@ -1,34 +1,42 @@
----
-layout: presentation
-title: FpML Product Defs
----
+<html>
+    <head>
+        <link rel="stylesheet" href="css/reveal.css">
+        <link rel="stylesheet" href="css/theme/white.css">
+    </head>
+    <body>
+        <div class="reveal">
+            <div class="slides">
+                <section data-markdown>
+ 		<script type="text/template">
+        	## Fpml Product Definitions
 
-## FpML Product Definitions
-https://github.com/mrlifetime/fpml_prod_defs/
-
-
----
-
+		Presented by Artyom Arabadji (Bloomberg LP)
+		for FpML Architecture Working Group 2017
+                aarabadji@bloomberg.net
+		https://github.com/mrlifetime/fpml_prod_defs
+    		</script>
+		</section>
+                <section data-markdown>
+<script type="text/template">
 ## Objectives
-
 - Create a view for sharing supported products between execution venues and their clients.
 - Encode common conventions associated with products.
 - Ability to represent majority of electronically traded derivatives (currently modelled for IRS only)
 - Ability to represent package products that comprise of multiple components
+</script>
+		</section>
 
----
-
+                <section data-markdown>
+<script type="text/template">
 ## Basic design
-
 - Modelled as a schema on top of pre-trade view v5.9
 - Avoid changing existing FpML types
 - Provide new structures to use existing FpML types
+</script>
+		</section>
 
----
-
-## High level structure
-
-```xml
+                <section>
+<pre><code>
 <ProductDefinitionDocument>
   <!-- header of the document contains useful meta data -->
   <header>
@@ -48,10 +56,11 @@ https://github.com/mrlifetime/fpml_prod_defs/
       <partyId>PriceTaker</partyId>
   </party>
 </ProductDefinitionDocument>
+</code></pre>
+		</section>
 
-```
----
-
+                <section data-markdown>
+<script type="text/template">
 ## High level structure 2 - Product Definition
 
 Product definititon consists of:
@@ -60,10 +69,9 @@ Product definititon consists of:
 - Conventions which are observed by the platform
 - Product definition itself
 - Trade side reference - href to an id that defines the main "side" for the product (optional)
-
-### Example - Fixed-Float vanilla swap
-
-```xml
+</script>
+		</section>
+<pre><code>
     <definition id="BPSW5">
         <description>GBP SWAP VS 6M 5YR</description>
         <conventions>
@@ -82,11 +90,12 @@ Product definititon consists of:
         </swap>
         <tradeSideRelativeToSwapStream href="BPSW5_fixedLeg" />
     </definition>
-```
+</code></pre>
+		<section>
+		</section>
 
----
-
-### Package structure
+                <section data-markdown>
+## Package structure
 
 Package structure allows to describe products that consist of 2 or more outright (single) products.
 
@@ -95,19 +104,21 @@ User can refer to components by:
 - Providing href to product definition elsewhere in the document
 - Providing a standard identifier (such as ISIN) for a product NOT defined in the document
 
-## Additional package data
-
+<section data-markdown>
+<script type="text/template">
 User can also encode following package details
 
 - Package hedge type
 - Risk relationship between legs
 - Trade sides relationship for each leg
 - Main component that determines the side of the "trade"
----
+</script>
+</section>
+		</section>
 
-## Example - Butterfly swap
-
-```xml
+		<section>
+<h2>Example - Butterfly swap</h2>
+<pre><code>
     <definition id="EU020305">
         <description>EUR Butterfly 2Y 3Y 5Y</description>
         <conventions>
@@ -140,12 +151,11 @@ User can also encode following package details
         </package>
         <tradeSideRelativeToComponent href="EU020305_EUSA5" />
     </definition>
-```
----
-
-## Example - Swap vs Bond
-
-```xml
+</code></pre>
+		</section>
+		<section>
+<h2>Example - Swap vs Bond</h2>
+<pre><code>
     <definition id="USSP5">
         <description>USD 5Y US TREASURY SPREAD</description>
         <conventions>
@@ -173,5 +183,14 @@ User can also encode following package details
         </package>
         <tradeSideRelativeToComponent href="USSP5_USSWAP5" />
     </definition>
-```
----
+</code></pre>
+		</section>
+            </div>
+        </div>
+        <script src="js/reveal.js"></script>
+        <script>
+            Reveal.initialize();
+        </script>
+    </body>
+</html>
+

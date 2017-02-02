@@ -14,13 +14,9 @@
     <definition id="EU020305">
         <description>EUR Butterfly 2Y 3Y 5Y</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>Spread</quoteType>
-                <quoteUnit>BasisPoint</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
+            <quoteType>Spread</quoteType>
+            <quoteUnit>BasisPoint</quoteUnit>
         </conventions>
         <package>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EU020305</productId>
@@ -51,13 +47,9 @@
     <definition id="USSP5">
         <description>USD 5Y US TREASURY SPREAD</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>Spread</quoteType>
-                <quoteUnit>BasisPoint</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
+            <quoteType>Spread</quoteType>
+            <quoteUnit>BasisPoint</quoteUnit>
         </conventions>
         <package>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">USSP5</productId>
@@ -82,13 +74,9 @@
     <definition id="ASWABUND">
         <description>EUR 6M VS BUND FUTURE</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>Spread</quoteType>
-                <quoteUnit>BasisPoint</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
+            <quoteType>Spread</quoteType>
+            <quoteUnit>BasisPoint</quoteUnit>
         </conventions>
         <package>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">ASWABUND</productId>
@@ -113,13 +101,9 @@
     <definition id="EUBSV2">
         <description>EUR Basis2x 3M v 6M 2Y</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>Spread</quoteType>
-                <quoteUnit>BasisPoint</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
+            <quoteType>Spread</quoteType>
+            <quoteUnit>BasisPoint</quoteUnit>
         </conventions>
         <package>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUBSV2</productId>
@@ -142,13 +126,9 @@
     <definition id="USSWAP5">
         <description>USD Semi vs 3M 5yr</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>FixedRate</quoteType>
-                <quoteUnit>Percent</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
+            <quoteType>FixedRate</quoteType>
+            <quoteUnit>Percent</quoteUnit>
         </conventions>
         <swap>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">USSWAP5</productId>
@@ -276,13 +256,9 @@
     <definition id="USBA2">
         <description>USD Basis 1M v 3M 2Y</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>FloatingSpread</quoteType>
-                <quoteUnit>Spread</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
+            <quoteType>FloatingSpread</quoteType>
+            <quoteUnit>Spread</quoteUnit>
         </conventions>
         <swap>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">USBA2</productId>
@@ -418,13 +394,9 @@
     <definition id="EUSA2">
         <description>EUR 6M EURIBOR 2Y</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>FixedRate</quoteType>
-                <quoteUnit>Percent</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
+            <quoteType>FixedRate</quoteType>
+            <quoteUnit>Percent</quoteUnit>
         </conventions>
         <swap>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA2</productId>
@@ -546,13 +518,9 @@
     <definition id="EUSW2V3">
         <description>EUR 3M EURIBOR 2Y</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>FixedRate</quoteType>
-                <quoteUnit>Percent</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
+            <quoteType>FixedRate</quoteType>
+            <quoteUnit>Percent</quoteUnit>
         </conventions>
         <swap>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSW2V3</productId>
@@ -674,13 +642,9 @@
     <definition id="EUSA3">
         <description>EUR 6M EURIBOR 3Y</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>FixedRate</quoteType>
-                <quoteUnit>Percent</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
+            <quoteType>FixedRate</quoteType>
+            <quoteUnit>Percent</quoteUnit>
         </conventions>
         <swap>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA3</productId>
@@ -802,13 +766,9 @@
     <definition id="EUSA5">
         <description>EUR 6M EURIBOR 5Y</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>FixedRate</quoteType>
-                <quoteUnit>Percent</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
+            <quoteType>FixedRate</quoteType>
+            <quoteUnit>Percent</quoteUnit>
         </conventions>
         <swap>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">EUSA5</productId>
@@ -930,13 +890,9 @@
     <definition id="ASWABUND_20161012_SwapLeg">
         <description>EUR 6M EURIBOR 10Y hedged vs BUND</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>FixedRate</quoteType>
-                <quoteUnit>Percent</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
+            <quoteType>FixedRate</quoteType>
+            <quoteUnit>Percent</quoteUnit>
         </conventions>
         <swap>
             <swapStream id="ASWABUND_20161012_SwapLeg_floatingLeg">
@@ -1079,13 +1035,9 @@
     <definition id="USM30004">
         <description>USD MAC SWAP Dec16 Dec17 1%</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>0</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>NetPresetValue</quoteType>
-                <quoteUnit>Absolute</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>0</maximumQuotePrecisionDecimal>
+            <quoteType>NetPresetValue</quoteType>
+            <quoteUnit>Absolute</quoteUnit>
         </conventions>
         <swap>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">USM30004</productId>
@@ -1235,13 +1187,9 @@
     <definition id="BPPE15">
         <description>GBP Fwd Premium Swaption Straddle 1Y5Y</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>Premium</quoteType>
-                <quoteUnit>BasisPoint</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>3</maximumQuotePrecisionDecimal>
+            <quoteType>Premium</quoteType>
+            <quoteUnit>BasisPoint</quoteUnit>
         </conventions>
         <swaption>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">BPPE15</productId>
@@ -1396,13 +1344,9 @@
     <definition id="BPSW5">
         <description>GBP SWAP VS 6M 5YR</description>
         <conventions>
-            <platformConventions>
-                <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
-            </platformConventions>
-            <tradingConventions>
-                <quoteType>FixedRate</quoteType>
-                <quoteUnit>Percent</quoteUnit>
-            </tradingConventions>
+            <maximumQuotePrecisionDecimal>5</maximumQuotePrecisionDecimal>
+            <quoteType>FixedRate</quoteType>
+            <quoteUnit>Percent</quoteUnit>
         </conventions>
         <swap>
             <productId productIdScheme="http://www.bloomberg.com/ticker-scheme">BPSW5</productId>

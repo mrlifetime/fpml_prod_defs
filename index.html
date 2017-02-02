@@ -7,14 +7,13 @@
         <div class="reveal">
             <div class="slides">
                 <section data-markdown>
- 		<script type="text/template">
-        	## Fpml Product Definitions
+<script type="text/template">
+## Fpml Product Definitions
 
-		Presented by Artyom Arabadji (Bloomberg LP)
-		for FpML Architecture Working Group 2017
-                aarabadji@bloomberg.net
-		https://github.com/mrlifetime/fpml_prod_defs
-    		</script>
+Presented by Artyom Arabadji (Bloomberg LP) for FpML Architecture Working Group 2017
+aarabadji@bloomberg.net
+https://github.com/mrlifetime/fpml_prod_defs
+</script>
 		</section>
                 <section data-markdown>
 <script type="text/template">
@@ -36,6 +35,7 @@
 		</section>
 
                 <section>
+<h2>High level structure</h2>
 <pre><code data-trim data-noescape>
 <ProductDefinitionDocument>
   <!-- header of the document contains useful meta data -->
@@ -71,6 +71,9 @@ Product definititon consists of:
 - Trade side reference - href to an id that defines the main "side" for the product (optional)
 </script>
 		</section>
+
+		<section>
+<h2>Example - Fixed-Float Vanilla Swap</h2>
 <pre><code data-trim data-noescape>
     <definition id="BPSW5">
         <description>GBP SWAP VS 6M 5YR</description>
@@ -91,10 +94,10 @@ Product definititon consists of:
         <tradeSideRelativeToSwapStream href="BPSW5_fixedLeg" />
     </definition>
 </code></pre>
-		<section>
 		</section>
 
                 <section data-markdown>
+<script type="text/template">
 ## Package structure
 
 Package structure allows to describe products that consist of 2 or more outright (single) products.
@@ -103,6 +106,8 @@ User can refer to components by:
 
 - Providing href to product definition elsewhere in the document
 - Providing a standard identifier (such as ISIN) for a product NOT defined in the document
+
+</script>
 
 <section data-markdown>
 <script type="text/template">
@@ -114,6 +119,7 @@ User can also encode following package details
 - Main component that determines the side of the "trade"
 </script>
 </section>
+
 		</section>
 
 		<section>
@@ -153,6 +159,7 @@ User can also encode following package details
     </definition>
 </code></pre>
 		</section>
+
 		<section>
 <h2>Example - Swap vs Bond</h2>
 <pre><code data-trim data-noescape>
@@ -185,6 +192,7 @@ User can also encode following package details
     </definition>
 </code></pre>
 		</section>
+
             </div>
         </div>
         <script src="js/reveal.js"></script>

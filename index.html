@@ -37,25 +37,25 @@ https://github.com/mrlifetime/fpml_prod_defs
                 <section>
 <h2>High level structure</h2>
 <pre><code data-trim data-noescape>
-<ProductDefinitionDocument>
-  <!-- header of the document contains useful meta data -->
-  <header>
-    <platformDate>2016-10-12</platformDate>
-  </header>
+&lt;ProductDefinitionDocument&gt;
+  &lt;!-- header of the document contains useful meta data --&gt;
+  &lt;header&gt;
+    &lt;platformDate&gt;2016-10-12&lt;/platformDate&gt;
+  &lt;/header&gt;
 
-  <!-- multiple definitions go here -->
-  <definition><!-- body --></definition>
-  <definition><!-- body --></definition>
-  <!-- ... -->
+  &lt;!-- multiple definitions go here --&gt;
+  &lt;definition&gt;&lt;!-- body --&gt;&lt;/definition&gt;
+  &lt;definition&gt;&lt;!-- body --&gt;&lt;/definition&gt;
+  &lt;!-- ... --&gt;
  
-  <!-- PartiesAndAccounts.model defines parties that are used to encode trade sides -->
-  <party id="party1">
-      <partyId>MarketMaker</partyId>
-  </party>
-  <party id="party2">
-      <partyId>PriceTaker</partyId>
-  </party>
-</ProductDefinitionDocument>
+  &lt;!-- PartiesAndAccounts.model defines parties that are used to encode trade sides --&gt;
+  &lt;party id="party1"&gt;
+      &lt;partyId&gt;MarketMaker&lt;/partyId&gt;
+  &lt;/party&gt;
+  &lt;party id="party2"&gt;
+      &lt;partyId&gt;PriceTaker&lt;/partyId&gt;
+  &lt;/party&gt;
+&lt;/ProductDefinitionDocument&gt;
 </code></pre>
 		</section>
 
@@ -96,7 +96,8 @@ Product definititon consists of:
 </code></pre>
 		</section>
 
-                <section data-markdown>
+                <section>
+<section data-markdown>
 <script type="text/template">
 ## Package structure
 
@@ -108,7 +109,7 @@ User can refer to components by:
 - Providing a standard identifier (such as ISIN) for a product NOT defined in the document
 
 </script>
-
+</section>
 <section data-markdown>
 <script type="text/template">
 User can also encode following package details

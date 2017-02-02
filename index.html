@@ -36,26 +36,27 @@ https://github.com/mrlifetime/fpml_prod_defs
 
                 <section>
 <h2>High level structure</h2>
-<pre><code class="xml" data-trim data-noescape>
-&lt;ProductDefinitionDocument&gt;
-  &lt;!-- header of the document contains useful meta data --&gt;
-  &lt;header&gt;
-    &lt;platformDate&gt;2016-10-12&lt;/platformDate&gt;
-  &lt;/header&gt;
+<pre><code data-trim>
+<?xml version="1.0"?>
+<ProductDefinitionDocument>
+  <!-- header of the document contains useful meta data -->
+  <header>
+    <platformDate>2016-10-12</platformDate>
+  </header>
 
-  &lt;!-- multiple definitions go here --&gt;
-  &lt;definition&gt;&lt;!-- body --&gt;&lt;/definition&gt;
-  &lt;definition&gt;&lt;!-- body --&gt;&lt;/definition&gt;
-  &lt;!-- ... --&gt;
+  <!-- multiple definitions go here -->
+  <definition><!-- body --></definition>
+  <definition><!-- body --></definition>
+  <!-- ... -->
  
-  &lt;!-- PartiesAndAccounts.model defines parties that are used to encode trade sides --&gt;
-  &lt;party id="party1"&gt;
-      &lt;partyId&gt;MarketMaker&lt;/partyId&gt;
-  &lt;/party&gt;
-  &lt;party id="party2"&gt;
-      &lt;partyId&gt;PriceTaker&lt;/partyId&gt;
-  &lt;/party&gt;
-&lt;/ProductDefinitionDocument&gt;
+  <!-- PartiesAndAccounts.model defines parties that are used to encode trade sides -->
+  <party id="party1">
+      <partyId>MarketMaker</partyId>
+  </party>
+  <party id="party2">
+      <partyId>PriceTaker</partyId>
+  </party>
+</ProductDefinitionDocument>
 </code></pre>
 		</section>
 
@@ -74,7 +75,8 @@ Product definititon consists of:
 
 		<section>
 <h2>Example - Fixed-Float Vanilla Swap</h2>
-<pre><code data-trim data-noescape>
+<pre><code data-trim>
+    <?xml version="1.0"?>
     <definition id="BPSW5">
         <description>GBP SWAP VS 6M 5YR</description>
         <conventions>
@@ -125,7 +127,8 @@ User can also encode following package details
 
 		<section>
 <h2>Example - Butterfly swap</h2>
-<pre><code data-trim data-noescape>
+<pre><code data-trim>
+    <?xml version="1.0"?>
     <definition id="EU020305">
         <description>EUR Butterfly 2Y 3Y 5Y</description>
         <conventions>
@@ -163,7 +166,8 @@ User can also encode following package details
 
 		<section>
 <h2>Example - Swap vs Bond</h2>
-<pre><code data-trim data-noescape>
+<pre><code data-trim>
+    <?xml version="1.0"?>
     <definition id="USSP5">
         <description>USD 5Y US TREASURY SPREAD</description>
         <conventions>

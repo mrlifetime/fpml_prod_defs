@@ -41,7 +41,7 @@
                 <hedgeRiskWeight>0.5</hedgeRiskWeight>
             </component>
         </package>
-        <tradeSideRelativeToComponent href="EU020305_EUSA5" />
+        <tradeSideRelativeToComponent href="EU020305_EUSA3" />
     </definition>
 
     <definition id="USSP5">
